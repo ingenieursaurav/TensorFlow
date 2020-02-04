@@ -52,7 +52,11 @@ namespace tf_read_only_memory_region {
 // ----------------------------------------------------------------------------
 namespace tf_windows_filesystem {
 
-// TODO(mihaimaruseac): Implement later
+static void Init(TF_Filesystem* filesystem, TF_Status* status) {
+  TF_SetStatus(status, TF_OK, "");
+}
+
+static void Cleanup(TF_Filesystem* filesystem) {}
 
 }  // namespace tf_windows_filesystem
 
@@ -60,6 +64,11 @@ static void ProvideFilesystemSupportFor(TF_FilesystemPluginOps* ops,
                                         const char* uri) {
   TF_SetFilesystemVersionMetadata(ops);
   ops->scheme = strdup(uri);
+
+  ops->filesystem_ops = static_cast<TF_FilesystemOps*>(
+      plugin_memory_allocate(TF_FILESYSTEM_OPS_SIZE));
+  ops->filesystem_ops->init = tf_windows_filesystem::Init;
+  ops->filesystem_ops->cleanup = tf_windows_filesystem::Cleanup;
 }
 
 void TF_InitPlugin(TF_FilesystemPluginInfo* info) {

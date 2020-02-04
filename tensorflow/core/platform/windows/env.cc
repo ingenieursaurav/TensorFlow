@@ -190,8 +190,10 @@ class WindowsEnv : public Env {
 
 }  // namespace
 
+#if 0
 REGISTER_FILE_SYSTEM("", WindowsFileSystem);
 REGISTER_FILE_SYSTEM("file", LocalWinFileSystem);
+#endif
 
 Env* Env::Default() {
   static Env* default_env = new WindowsEnv;

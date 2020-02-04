@@ -212,8 +212,13 @@ class PosixEnv : public Env {
 }  // namespace
 
 #if defined(PLATFORM_POSIX) || defined(__APPLE__) || defined(__ANDROID__)
+// TODO(mihaimaruseac): After all filesystems are converted, enable new
+// registration and delete this outdated mechanism. Keep as it is until we are
+// ready to flip the bit all over the board.
+#if 0
 REGISTER_FILE_SYSTEM("", PosixFileSystem);
 REGISTER_FILE_SYSTEM("file", LocalPosixFileSystem);
+#endif
 Env* Env::Default() {
   static Env* default_env = new PosixEnv;
   return default_env;
