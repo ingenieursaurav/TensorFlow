@@ -36,6 +36,9 @@ echo
 echo '== check python ==================================================='
 } >> ${OUTPUT_FILE}
 
+
+echo "example commit"
+
 cat <<EOF > /tmp/check_python.py
 import platform
 
