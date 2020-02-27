@@ -688,11 +688,11 @@ def tf_repositories(path_prefix = "", tf_repo_name = ""):
         name = "nccl_archive",
         build_file = clean_dep("//third_party:nccl/archive.BUILD"),
         patch_file = clean_dep("//third_party/nccl:archive.patch"),
-        sha256 = "7ff66aca18392b162829612e02c00b123a58ec35869334f72d7e5afaf5ea4a13",
-        strip_prefix = "nccl-3701130b3c1bcdb01c14b3cb70fe52498c1e82b7",
+        sha256 = "ef8b624ef28e9e2d0e162065932dd2f25de8d6d1dc58df91bd36977e4bc0224c",
+        strip_prefix = "nccl-7c72dee660e4d055b81721dd6b03e4e1c0a983cf",
         urls = [
-            "https://storage.googleapis.com/mirror.tensorflow.org/github.com/nvidia/nccl/archive/3701130b3c1bcdb01c14b3cb70fe52498c1e82b7.tar.gz",
-            "https://github.com/nvidia/nccl/archive/3701130b3c1bcdb01c14b3cb70fe52498c1e82b7.tar.gz",
+            "https://storage.googleapis.com/mirror.tensorflow.org/github.com/nvidia/nccl/archive/7c72dee660e4d055b81721dd6b03e4e1c0a983cf.tar.gz",
+            "https://github.com/nvidia/nccl/archive/7c72dee660e4d055b81721dd6b03e4e1c0a983cf.tar.gz",
         ],
     )
 
